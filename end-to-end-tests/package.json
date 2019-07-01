@@ -1,0 +1,9 @@
+{
+  "name": "abhimanyu",
+  "devDependencies": {
+    "cucumber": "^5.1.0"
+  },
+  "scripts": {
+    "test": "cucumber-js"
+  }
+}
