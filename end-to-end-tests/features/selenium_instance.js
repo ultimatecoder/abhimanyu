@@ -1,22 +1,21 @@
 let webdriver = require('selenium-webdriver');
-let driver;
+var driver = "test";
 
 declareDriver = function() {
   driver = new webdriver.Builder().withCapabilities(webdriver.Capabilities.firefox()).build();
 }
 
+getDriver = function() {
+  return driver;
+}
+
 quiteDriver = function() {
-  driver.quite();
+  driver.quit();
 }
 
 module.exports = {
   declareDriver: declareDriver,
   quiteDriver: quiteDriver,
-  driver: driver
+  driver: driver,
+  getDriver: getDriver
 };
-
-//export { declareDriver, quiteDriver };
-
-//export { driver }
-
-//export let driver = 4;
