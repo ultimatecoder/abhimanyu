@@ -9,19 +9,19 @@
     {% endif %}
     <form action="{{ url_for('signup') }}" method="post">
       <div class="form-group">
-        <input name="First name" class="form-control" id="firstNameInput" placeholder="First name" type="text">
+        <input name="First name" class="form-control" id="firstNameInput" placeholder="First name" type="text" value="{{ request.form['First name'] }}">
       </div>
       <div class="form-group">
-        <input name="Last name" class="form-control" id="lastNameInput" placeholder="Last name" type="text">
+        <input name="Last name" class="form-control" id="lastNameInput" placeholder="Last name" type="text" value="{{ request.form['Last name'] }}">
       </div>
       <div class="form-group">
-        <input name="Email address" class="form-control" id="emailaddressInput" placeholder="Email address" type="email">
+        <input name="Email address" class="form-control" id="emailaddressInput" placeholder="Email address" type="email" value="{{ request.form['Email address'] }}">
       </div>
       <div class="form-group">
-        <input name="Password" class="form-control" id="passwordInput" placeholder="Password" type="password">
+        <input name="Password" class="form-control" id="passwordInput" placeholder="Password" type="password" value="">
       </div>
       <div class="form-group">
-        <input name="Retype password" class="form-control" id="passwordRetypeInput" placeholder="Retype Password" type="password">
+        <input name="Retype password" class="form-control" id="passwordRetypeInput" placeholder="Retype Password" type="password" value="">
       </div>
       <input id="submitButton" type="submit" class="btn btn-primary">Sign me up!</button>
     </form>

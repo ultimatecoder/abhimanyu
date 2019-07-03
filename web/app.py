@@ -22,16 +22,22 @@ def signup():
                 if form.is_blank(request.form[name]):
                     warning_message = f"{name} is required"
                     return render_template(
-                        "signup.html", warning_message=warning_message
-                    )
+                        "signup.html",
+                        warning_message=warning_message,
+                        request=request
+                    ), 400
             except KeyError:
                 warning_message = f"{name} is blank"
                 return render_template(
-                    "signup.html", warning_message=warning_message
-                )
+                    "signup.html",
+                    warning_message=warning_message,
+                    request=request
+                ), 400
         if not (request.form["Password"] == request.form["Retype password"]):
             warning_message = "Password and Retype password should be same."
             return render_template(
-                "signup.html", warning_message=warning_message
-            )
-    return render_template('signup.html', warning_message=None)
+                "signup.html",
+                warning_message=warning_message,
+                request=request
+            ), 400
+    return render_template('signup.html'), 201

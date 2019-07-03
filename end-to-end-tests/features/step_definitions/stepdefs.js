@@ -42,13 +42,9 @@ When('I type {string} as my re-type password', function (string) {
   return element.sendKeys(string);
 });
 
-When('I press a Signup button', function () {
+When('I press a signup button', function () {
   let button = getDriver().findElement(By.id('submitButton'));
   return button.click();
-});
-
-Then('I should get {string} message', function (string) {
-  return 'pending';
 });
 
 Then('I should get an error message that {string}', function (string) {
@@ -56,4 +52,47 @@ Then('I should get an error message that {string}', function (string) {
   return element.getText().then(function(text) {
     return assert.strictEqual(text, string);
   });
+});
+
+Then('last name should be {string}', function (string) {
+  let element = getDriver().findElement(By.id('lastNameInput'));
+  return element.getAttribute('value').then(function(text) {
+    return assert.strictEqual(text, string);
+  });
+});
+
+Then('email address should be {string}', function (string) {
+  let element = getDriver().findElement(By.id('emailaddressInput'));
+  return element.getAttribute('value').then(function(text) {
+    return assert.strictEqual(text, string);
+  });
+});
+
+Then('password should be {string}', function (string) {
+  let element = getDriver().findElement(By.id('passwordInput'));
+  return element.getAttribute('value').then(function(text) {
+    return assert.strictEqual(text, string);
+  });
+});
+
+Then('re-type password should be {string}', function (string) {
+  let element = getDriver().findElement(By.id('passwordRetypeInput'));
+  return element.getAttribute('value').then(function(text) {
+    return assert.strictEqual(text, string);
+  });
+});
+
+Then('first name should be {string}', function (string) {
+  let element = getDriver().findElement(By.id('firstNameInput'));
+  return element.getAttribute('value').then(function(text) {
+    return assert.strictEqual(text, string);
+  });
+});
+
+Then('I should be logged in as {string}', function (string) {
+  return 'pending';
+});
+
+Then('I should be at home page', function () {
+  return 'pending';
 });
