@@ -46,8 +46,8 @@ Feature: Applicant Signup
     And first name should be "Raj"
     And last name should be "Debnath"
     And email address should be "raj.debnath@gmail.com"
-    And password should be ""
-    And re-type password should be ""
+    And password should be blank
+    And re-type password should be blank
 
   Scenario: Give a warning when First name is not filled
     When I open a Signup page
@@ -59,8 +59,8 @@ Feature: Applicant Signup
     Then I should get an error message that "First name is required"
     And last name should be "Debnath"
     And email address should be "raj.debnath@gmail.com"
-    And password should be ""
-    And re-type password should be ""
+    And password should be blank
+    And re-type password should be blank
 
   Scenario: Give a warning when email address filed is blank
     When I open a Signup page
@@ -72,8 +72,8 @@ Feature: Applicant Signup
     Then I should get an error message that "Email address is required"
     And first name should be "Raj"
     And last name should be "Debnath"
-    And password should be ""
-    And re-type password should be ""
+    And password should be blank
+    And re-type password should be blank
 
   Scenario: Give a warning when Password is blank
     When I open a Signup page
@@ -86,8 +86,8 @@ Feature: Applicant Signup
     And first name should be "Raj"
     And last name should be "Debnath"
     And email address should be "raj.debnath@gmail.com"
-    And password should be ""
-    And re-type password should be ""
+    And password should be blank
+    And re-type password should be blank
 
   Scenario: Give a warning when Retype Password is blank
     When I open a Signup page
@@ -100,13 +100,13 @@ Feature: Applicant Signup
     And first name should be "Raj"
     And last name should be "Debnath"
     And email address should be "raj.debnath@gmail.com"
-    And password should be ""
-    And re-type password should be ""
+    And password should be blank
+    And re-type password should be blank
 
   Scenario: Form should be blank when launched initially
     When I open a Signup page
-    Then first name should be ""
-    And last name should be ""
-    And email address should be ""
-    And password should be ""
-    And re-type password should be ""
+    Then first name should be blank
+    And last name should be blank
+    And email address should be blank
+    And password should be blank
+    And re-type password should be blank
