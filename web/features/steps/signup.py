@@ -3,16 +3,20 @@
 import behave
 
 import utils
+from models import User
 
 
 @given(u'below user already exists')
 def step_impl(context):
-    raise NotImplementedError(u'STEP: Given below user already exists')
-
-
-@given(u'I am logged in as "ajay.sharma@gmail.com"')
-def step_impl(context):
-    raise NotImplementedError(u'STEP: Given I am logged in as "ajay.sharma@gmail.com"')
+    for row in context.table:
+        user = User(
+            first_name=row["first name"],
+            last_name=row["last name"],
+            email_address=row["email address"],
+            password=row["password"]
+        )
+        context.db.session.add(user)
+        context.db.session.commit()
 
 
 @behave.when(u'I open a Signup page')
@@ -60,16 +64,6 @@ def step_impl(context):
 def step_impl(context, warning_message):
     warning_message_element = context.browser.find_element_by_id("warning")
     utils.custom_assert(warning_message_element.text, warning_message)
-
-
-@then(u'I should be logged in as "{email_address}"')
-def step_impl(context, email_address):
-    raise NotImplementedError(u'STEP: Then email address should be "raj.debnath@gmail.com"')
-
-
-@then(u'I should be at home page')
-def step_impl(context):
-    raise NotImplementedError(u'STEP: Then I should be at home page')
 
 
 @then(u'first name should be "{first_name}"')
@@ -130,3 +124,10 @@ def step_impl(context):
     retype_password = context.browser.find_element_by_id("retypePasswordInput")
     retype_password_value = retype_password.get_attribute("value")
     utils.custom_assert(retype_password_value, "")
+
+
+@then(u'there should be an entry with "{email_address}"')
+def step_impl(context, email_address):
+    context.db.session.query(User).filter(
+        User.email_address == email_address
+    ).one()

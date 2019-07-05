@@ -199,3 +199,8 @@ typings/
 
 # Compiled static files
 ./static
+
+
+# Local
+# =======
+temp.db

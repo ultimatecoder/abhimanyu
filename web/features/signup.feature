@@ -3,8 +3,8 @@ Feature: Applicant Signup
 
   Scenario: Signup should not be possible for logged in users
     Given below user already exists
-      | first name | last name | email                 | password |
-      | Ajay       | Sharm     | ajay.sharm@gmail.com  | abcs     |
+      | first name | last name | email address         | password |
+      | Ajay       | Sharm     | ajay.sharma@gmail.com  | abcs     |
     And I am logged in as "ajay.sharma@gmail.com"
     When I open a Signup page
     Then I should get an error message that "You are already logged in"
@@ -17,12 +17,13 @@ Feature: Applicant Signup
     And I type "1234" as my password
     And I type "1234" as my re-type password
     And I press a signup button
-    Then I should be logged in as "ajay.sharma@gmail.com"
+    Then there should be an entry with "ajay.sharma@gmail.com"
     And I should be at home page
+    And I should be logged in as "ajay.sharma@gmail.com"
 
   Scenario: Give an error when applicant with same email address already exists
     Given below user already exists
-      | first name | last name | email                 | password |
+      | first name | last name | email address         | password |
       | Raj        | Debnath   | raj.debnath@gmail.com | 1234     |
       | Ajay       | Sharm     | ajay.sharm@gmail.com  | abcs     |
     When I open a Signup page
