@@ -1,24 +1,11 @@
 #! /usr/bin/env python
 
-import os
 
 import flask
 import sqlalchemy
 
 from validators import form
-
-
-app = flask.Flask(__name__)
-
-BASE_DIR = os.path.abspath(os.path.dirname(__file__))
-
-app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get(
-    "SQLALCHEMY_DATABASE_URI", f"sqlite:///{BASE_DIR}/temp.db"
-)
-
-app.secret_key = os.environ.get("SECRET_KEY", "123456")
-
-
+from config import app
 import models
 
 

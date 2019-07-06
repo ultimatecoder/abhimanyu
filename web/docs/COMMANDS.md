@@ -50,3 +50,20 @@ make run
 
 This command will update Javascript dependencies and start the development
 server at 5000 port.
+
+```
+make migrate
+```
+
+This command will apply exiting migrations to a new db. Make sure you have
+performed the `make build-dev` step which is installing expected Python
+dependencies.
+
+```
+make create-migrations
+```
+
+This command will create new migrations. You should perform this step when you
+are modifying existing models. This command will update existing migrations
+files to match whatever schema has for models. You should commit changes done at
+`migrations` folder at your version control system.

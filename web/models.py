@@ -1,14 +1,9 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import sqlalchemy
 import flask
-from flask_sqlalchemy import SQLAlchemy
 
-import app
-
-
-db = SQLAlchemy(app.app)
+from config import db
 
 
 class User(db.Model):

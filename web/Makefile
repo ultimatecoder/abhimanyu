@@ -1,4 +1,4 @@
-build:
+build: migrate
 	yarn install --dev
 	pip install pipenv
 	pipenv install
@@ -23,4 +23,7 @@ run: build-static
 	pipenv run flask run
 
 migrate:
-	pipenv run python migrate.py
+	pipenv run flask db upgrade
+
+create-migrations:
+	pipenv run flask db migrate
