@@ -1,3 +1,5 @@
+APP := abhimanyu
+
 build: migrate
 	yarn install --dev
 	pip install pipenv
@@ -20,10 +22,13 @@ functional-test:
 test: unit-test functional-test
 
 run: build-static
-	pipenv run flask run
+	FLASK_APP=${APP} pipenv run flask run
 
 migrate:
-	pipenv run flask db upgrade
+	FLASK_APP=${APP} pipenv run flask db upgrade
 
 create-migrations:
 	pipenv run flask db migrate
+
+production-run:
+	pipenv run gunicorn -b 127.0.0.1:${port} abhimanyu:app
